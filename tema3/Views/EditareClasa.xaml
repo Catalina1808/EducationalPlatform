@@ -1,0 +1,117 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tema3.ViewModels"
+        xmlns:localConverter="clr-namespace:tema3.Converters" x:Class="tema3.Views.EditareClasa"
+        mc:Ignorable="d"
+        Title="EditareClasa" Height="450" Width="800">
+    <Window.DataContext>
+        <local:EditareClasaVM />
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/tema3;component/Images/fundal_admin.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.Resources>
+            <localConverter:ClasaConvert x:Key="clasaConvert" />
+        </Grid.Resources>
+
+        <TextBlock HorizontalAlignment="Left" Margin="103,72,0,0" TextWrapping="Wrap" Text="Denumire" VerticalAlignment="Top" Height="31" Width="89" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtDenumire" Width="142" HorizontalAlignment="Left"
+                Text ="{Binding SelectedItem.Denumire, ElementName=claseGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="197,72,0,317" FontSize="16" FontFamily="Segoe Script" />
+        <TextBlock HorizontalAlignment="Left" Margin="88,107,0,0" TextWrapping="Wrap" Text="Specializare" VerticalAlignment="Top" Height="31" Width="109" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtSpecializare" Width="142" HorizontalAlignment="Left"
+                Text ="{Binding SelectedItem.Specializare, ElementName=claseGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="197,107,0,282" FontSize="16" FontFamily="Segoe Script" />
+        <TextBlock HorizontalAlignment="Left" Margin="57,146,0,0" TextWrapping="Wrap" Text="Nume Diriginte" VerticalAlignment="Top" Height="31" Width="140" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtDirigN" Width="142" HorizontalAlignment="Left"
+                Text ="{Binding SelectedItem.DirigN, ElementName=claseGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="197,144,0,245" FontSize="16" FontFamily="Segoe Script" />
+        <TextBlock HorizontalAlignment="Left" Margin="26,182,0,0" TextWrapping="Wrap" Text="Prenume Diriginte" VerticalAlignment="Top" Height="31" Width="166" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtDirigP" Width="142" HorizontalAlignment="Left"
+                Text ="{Binding SelectedItem.DirigP, ElementName=claseGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="197,182,0,207" FontSize="16" FontFamily="Segoe Script" />
+
+        <DataGrid x:Name="claseGrid"  Margin="386,42,53.6,182" AutoGenerateColumns="False"
+                ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding ClaseList}" FontFamily="Segoe Script" Background="#FF9DA2FF" BorderBrush="#FF0877E4" Foreground="#FF390BB3" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Denumire" Binding="{Binding Denumire}" />
+                <DataGridTextColumn Header="Specializare" Binding="{Binding Specializare}" />
+                <DataGridTextColumn Header="DirigN" Binding="{Binding DirigN}" />
+                <DataGridTextColumn Header="DirigP" Binding="{Binding DirigP}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Center" Margin="147,250,190.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="456" FontSize="18" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFEA0D0D" TextAlignment="Center" Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <Button Content="Adauga clasa" Margin="109,286,542.6,90" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FF9FF5FD" Command="{Binding AddCommand}" >
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource clasaConvert}">
+                    <Binding ElementName="txtDenumire" Path="Text"/>
+                    <Binding ElementName="txtSpecializare" Path="Text"/>
+                    <Binding ElementName="txtDirigN" Path="Text"/>
+                    <Binding ElementName="txtDirigP" Path="Text"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C34C5" Offset="0.511"/>
+                    <GradientStop Color="#FF05223A" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Modifica clasa"  FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FF9FF5FD" Margin="312,286,316.6,90" Command="{Binding UpdateCommand}"
+                CommandParameter="{Binding SelectedItem, ElementName=claseGrid}" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C34C5" Offset="0.511"/>
+                    <GradientStop Color="#FF05223A" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Sterge clasa" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FF9FF5FD" Margin="526,286,106.6,90" Command="{Binding DeleteCommand}" 
+                CommandParameter="{Binding SelectedItem, ElementName=claseGrid}" >
+
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C34C5" Offset="0.511"/>
+                    <GradientStop Color="#FF05223A" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Inapoi" HorizontalAlignment="Left" Margin="40,0,0,30" VerticalAlignment="Bottom" Width="110"
+                Command="{Binding OpenWindowCommand}" Height="30" FontFamily="Segoe Script" FontSize="16" FontWeight="Bold" Foreground="#FF020006" Click="Button_Back">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF260540" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+
+    </Grid>
+</Window>

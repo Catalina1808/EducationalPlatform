@@ -1,0 +1,129 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tema3.ViewModels"
+        xmlns:Converters="clr-namespace:tema3.Converters" x:Class="tema3.Views.InformatiiElevView"
+        mc:Ignorable="d"
+        Title="InformatiiElevView" Height="503.195" Width="896.326">
+    <Window.Resources>
+        <Converters:MaterieElevConvert x:Key="materieElevConvert" />
+    </Window.Resources>
+    <Window.DataContext>
+        <local:InformatiiElevVM />
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/tema3;component/Images/fundal_elev.jpg"/>
+        </Grid.Background>
+        <DataGrid x:Name="noteGrid"  Margin="44,125,610.6,143.6" AutoGenerateColumns="False"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding NoteList, UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe Script" Background="#FFFCC093" BorderBrush="#FF0877E4" Foreground="#FF390BB3" RenderTransformOrigin="0.464,0.311" FontSize="11">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.02"/>
+                    <RotateTransform Angle="-0.048"/>
+                    <TranslateTransform X="-0.031" Y="0.01"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Materie" Binding="{Binding Item1}" />
+                <DataGridTextColumn Header="Nota" Binding="{Binding Item2}" />
+                <DataGridTextColumn Header="Teza" Binding="{Binding Item3}" />
+                <DataGridTextColumn Header="Semestru" Binding="{Binding Item4}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="absenteGrid"  Margin="311,126,322.6,135.6" AutoGenerateColumns="False"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding AbsenteList, UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe Script" BorderBrush="#FF0877E4" Foreground="#FF390BB3" RenderTransformOrigin="0.5,0.5" FontSize="11" Background="#FFFCC093">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.02"/>
+                    <RotateTransform Angle="-0.048"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Materie" Binding="{Binding Item1}" />
+                <DataGridTextColumn Header="Data" Binding="{Binding Item2}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Inapoi" HorizontalAlignment="Left" Margin="15,0,0,23" VerticalAlignment="Bottom" Width="93"
+            Command="{Binding OpenWindowCommand}" Height="30" FontFamily="Segoe Script" FontSize="16" FontWeight="Bold" Foreground="#FF020006" Click="Button_Back">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD3632D" Offset="0.511"/>
+                    <GradientStop Color="#FF802E0C" Offset="1"/>
+                    <GradientStop Color="#FFF0AE9F"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="389,85,0,0" TextWrapping="Wrap" Text="Absente" VerticalAlignment="Top" Height="31" Width="98" FontSize="18" FontFamily="Segoe Script" Foreground="#FFF7EEEE" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="110,85,0,0" TextWrapping="Wrap" Text="Note" VerticalAlignment="Top" Height="31" Width="65" FontSize="18" FontFamily="Segoe Script" Foreground="#FFF7EEEE" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <DataGrid x:Name="mediiGrid"  Margin="599,123,25.6,140.6" AutoGenerateColumns="False"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding MediiList, UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe Script" BorderBrush="#FF0877E4" Foreground="#FF390BB3" RenderTransformOrigin="0.5,0.5" FontSize="11" Background="#FFFCC093">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.02"/>
+                    <RotateTransform Angle="-0.029"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Materie" Binding="{Binding Item1}" />
+                <DataGridTextColumn Header="Medie" Binding="{Binding Item2}" />
+                <DataGridTextColumn Header="Semestru" Binding="{Binding Item3}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Left" Margin="697,85,0,0" TextWrapping="Wrap" Text="Medii" VerticalAlignment="Top" Height="31" Width="75" FontSize="18" FontFamily="Segoe Script" Foreground="#FFF7EEEE" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="649,346,0,0" TextWrapping="Wrap" Text="Medie generala" VerticalAlignment="Top" Height="31" Width="169" FontSize="18" FontFamily="Segoe Script" Foreground="#FFF7EEEE" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBox x:Name="txtMedieG" Width="72" HorizontalAlignment="Left"
+            Text ="{Binding MedieG, UpdateSourceTrigger=PropertyChanged}"  Margin="697,382,0,59.6" FontSize="16" FontFamily="Segoe Script" Background="#FFF4BCA5" RenderTransformOrigin="1.118,0.314" />
+        <TextBlock HorizontalAlignment="Left" Margin="59,42,0,0" TextWrapping="Wrap" Text="Materie" VerticalAlignment="Top" Height="31" Width="78" FontSize="14" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtMaterie" Width="142" HorizontalAlignment="Left"
+            Text ="{Binding Materie, UpdateSourceTrigger=PropertyChanged}"  Margin="142,37,0,405.6" FontSize="16" FontFamily="Segoe Script" />
+
+        <Button Content="Afiseaza"  FontFamily="Segoe Script" FontSize="16" FontWeight="Bold" Foreground="#FFF5F7F7" Margin="319,37,441.6,405.6" Command="{Binding UpdateCommand}"
+            RenderTransformOrigin="0.664,0.587" >
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource materieElevConvert}">
+                    <Binding ElementName="txtMaterie" Path="Text"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD3632D" Offset="0.511"/>
+                    <GradientStop Color="#FF802E0C" Offset="1"/>
+                    <GradientStop Color="#FFF0AE9F"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" Margin="492,37,71.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="326" FontSize="18" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFEA0D0D" TextAlignment="Center" Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</Window>

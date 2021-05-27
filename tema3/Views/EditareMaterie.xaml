@@ -1,0 +1,103 @@
+﻿<Window x:Class="tema3.Views.EditareMaterie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tema3.ViewModels"
+        xmlns:localConverter="clr-namespace:tema3.Converters" 
+        mc:Ignorable="d"
+        Title="EditareMaterie" Height="450" Width="800">
+    <Window.Resources>
+        <localConverter:ClasaConvert x:Key="clasaConvert" />
+    </Window.Resources>
+    <Window.DataContext>
+        <local:EditareMaterieVM />
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/tema3;component/Images/fundal_admin.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.Resources>
+            <localConverter:MaterieConvert x:Key="materieConvert" />
+        </Grid.Resources>
+        <TextBlock HorizontalAlignment="Left" Margin="49,88,0,0" TextWrapping="Wrap" Text="Denumire" VerticalAlignment="Top" Height="31" Width="103" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtDenumire" Width="164" HorizontalAlignment="Left"
+            Text ="{Binding SelectedItem.Denumire, ElementName=materiiGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="158,88,0,301" FontSize="16" FontFamily="Segoe Script" />
+
+        <DataGrid x:Name="materiiGrid"  Margin="391,34,95.6,190" AutoGenerateColumns="False"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding MateriiList}" FontFamily="Segoe Script" Background="#FF9DA2FF" BorderBrush="#FF0877E4" Foreground="#FF390BB3" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Denumire" Binding="{Binding Denumire}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Center" Margin="21,146,471.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="301" FontSize="18" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFEA0D0D" TextAlignment="Center" Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <Button Content="Adauga Materie" Margin="64,261,547.6,120" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FF9FF5FD" Command="{Binding AddCommand}" >
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource materieConvert}">
+                    <Binding ElementName="txtDenumire" Path="Text"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C34C5" Offset="0.511"/>
+                    <GradientStop Color="#FF05223A" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Modifica materie"  FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FF9FF5FD" Margin="285,261,314.6,120" Command="{Binding UpdateCommand}"
+            CommandParameter="{Binding SelectedItem, ElementName=materiiGrid}" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C34C5" Offset="0.511"/>
+                    <GradientStop Color="#FF05223A" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Sterge materie" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FF9FF5FD" Margin="522,261,93.6,120" Command="{Binding DeleteCommand}" 
+            CommandParameter="{Binding SelectedItem, ElementName=materiiGrid}" >
+
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C34C5" Offset="0.511"/>
+                    <GradientStop Color="#FF05223A" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Inapoi" HorizontalAlignment="Left" Margin="40,0,0,30" VerticalAlignment="Bottom" Width="110"
+            Command="{Binding OpenWindowCommand}" Height="30" FontFamily="Segoe Script" FontSize="16" FontWeight="Bold" Foreground="#FF020006" Click="Button_Back">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF260540" Offset="1"/>
+                    <GradientStop Color="#FF6124E7"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</Window>

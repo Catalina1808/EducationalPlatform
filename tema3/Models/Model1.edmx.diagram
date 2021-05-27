@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b04a71fd60245baa09b7150e3d0318e" Name="Diagram1">
+        <EntityTypeShape EntityType="CatalogModel.Absenta" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Clasa" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Elev" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Login" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Material_Didactic" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Materie" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Medie" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Nota" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Profesor" Width="1.5" PointX="1.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatalogModel.Profesor_Materie_Clasa" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="CatalogModel.FK_Absenta_Elev" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Absenta_Materie" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Clasa_Profesor" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Elev_Clasa" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Material_Didactic_Clasa" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Profesor_Materie_Clasa_Clasa" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Elev_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Medie_Elev" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Nota_Elev" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Profesor_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Material_Didactic_Materie" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Medie_Materie" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Nota_Materie" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Profesor_Materie_Clasa_Materie" ManuallyRouted="false" />
+        <AssociationConnector Association="CatalogModel.FK_Profesor_Materie_Clasa_Profesor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

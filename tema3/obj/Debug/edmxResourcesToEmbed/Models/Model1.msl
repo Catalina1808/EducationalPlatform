@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CatalogModelStoreContainer" CdmEntityContainer="CatalogEntities">
+    <EntitySetMapping Name="Absentas">
+      <EntityTypeMapping TypeName="CatalogModel.Absenta">
+        <MappingFragment StoreEntitySet="Absenta">
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="motivata" ColumnName="motivata" />
+          <ScalarProperty Name="motivabila" ColumnName="motivabila" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clasas">
+      <EntityTypeMapping TypeName="CatalogModel.Clasa">
+        <MappingFragment StoreEntitySet="Clasa">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="specializare" ColumnName="specializare" />
+          <ScalarProperty Name="id_diriginte" ColumnName="id_diriginte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elevs">
+      <EntityTypeMapping TypeName="CatalogModel.Elev">
+        <MappingFragment StoreEntitySet="Elev">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="id_clasa" ColumnName="id_clasa" />
+          <ScalarProperty Name="id_login" ColumnName="id_login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="CatalogModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="parola" ColumnName="parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material_Didactic">
+      <EntityTypeMapping TypeName="CatalogModel.Material_Didactic">
+        <MappingFragment StoreEntitySet="Material_Didactic">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="id_clasa" ColumnName="id_clasa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materies">
+      <EntityTypeMapping TypeName="CatalogModel.Materie">
+        <MappingFragment StoreEntitySet="Materie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medies">
+      <EntityTypeMapping TypeName="CatalogModel.Medie">
+        <MappingFragment StoreEntitySet="Medie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="medie1" ColumnName="medie" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notas">
+      <EntityTypeMapping TypeName="CatalogModel.Nota">
+        <MappingFragment StoreEntitySet="Nota">
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="nota1" ColumnName="nota" />
+          <ScalarProperty Name="teza" ColumnName="teza" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesors">
+      <EntityTypeMapping TypeName="CatalogModel.Profesor">
+        <MappingFragment StoreEntitySet="Profesor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="id_login" ColumnName="id_login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesor_Materie_Clasa">
+      <EntityTypeMapping TypeName="CatalogModel.Profesor_Materie_Clasa">
+        <MappingFragment StoreEntitySet="Profesor-Materie-Clasa">
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="id_clasa" ColumnName="id_clasa" />
+          <ScalarProperty Name="teza" ColumnName="teza" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AbsenteDiriginte" FunctionName="CatalogModel.Store.AbsenteDiriginte">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.AbsenteDiriginte_Result">
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="motivata" ColumnName="motivata" />
+          <ScalarProperty Name="motivabila" ColumnName="motivabila" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AbsenteProfesor" FunctionName="CatalogModel.Store.AbsenteProfesor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.AbsenteProfesor_Result">
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="motivata" ColumnName="motivata" />
+          <ScalarProperty Name="motivabila" ColumnName="motivabila" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareAbsProf" FunctionName="CatalogModel.Store.AfisareAbsProf">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.AfisareAbsProf_Result">
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareEleviDirig" FunctionName="CatalogModel.Store.AfisareEleviDirig">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.AfisareEleviDirig_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="id_clasa" ColumnName="id_clasa" />
+          <ScalarProperty Name="id_login" ColumnName="id_login" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareMediiDirig" FunctionName="CatalogModel.Store.AfisareMediiDirig">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.AfisareMediiDirig_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="medie" ColumnName="medie" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareMediiProf" FunctionName="CatalogModel.Store.AfisareMediiProf">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.AfisareMediiProf_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="medie" ColumnName="medie" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CautareLogin" FunctionName="CatalogModel.Store.CautareLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.CautareLogin_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="parola" ColumnName="parola" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InserareinAbsenta" FunctionName="CatalogModel.Store.InserareinAbsenta" />
+    <FunctionImportMapping FunctionImportName="InserareinClasa" FunctionName="CatalogModel.Store.InserareinClasa" />
+    <FunctionImportMapping FunctionImportName="InserareinElev" FunctionName="CatalogModel.Store.InserareinElev" />
+    <FunctionImportMapping FunctionImportName="InserareinLogin" FunctionName="CatalogModel.Store.InserareinLogin" />
+    <FunctionImportMapping FunctionImportName="InserareinMaterie" FunctionName="CatalogModel.Store.InserareinMaterie" />
+    <FunctionImportMapping FunctionImportName="InserareinNota" FunctionName="CatalogModel.Store.InserareinNota" />
+    <FunctionImportMapping FunctionImportName="InserareinProfesor" FunctionName="CatalogModel.Store.InserareinProfesor" />
+    <FunctionImportMapping FunctionImportName="InserareinProfMatCls" FunctionName="CatalogModel.Store.InserareinProfMatCls" />
+    <FunctionImportMapping FunctionImportName="LoginElev" FunctionName="CatalogModel.Store.LoginElev" />
+    <FunctionImportMapping FunctionImportName="LoginProfesor" FunctionName="CatalogModel.Store.LoginProfesor" />
+    <FunctionImportMapping FunctionImportName="MaterialElev" FunctionName="CatalogModel.Store.MaterialElev">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.MaterialElev_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="id_clasa" ColumnName="id_clasa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MaterialProfesor" FunctionName="CatalogModel.Store.MaterialProfesor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.MaterialProfesor_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="id_clasa" ColumnName="id_clasa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MateriiElev" FunctionName="CatalogModel.Store.MateriiElev" />
+    <FunctionImportMapping FunctionImportName="ModificareClasa" FunctionName="CatalogModel.Store.ModificareClasa" />
+    <FunctionImportMapping FunctionImportName="ModificareElev" FunctionName="CatalogModel.Store.ModificareElev" />
+    <FunctionImportMapping FunctionImportName="ModificareLogin" FunctionName="CatalogModel.Store.ModificareLogin" />
+    <FunctionImportMapping FunctionImportName="ModificareMaterie" FunctionName="CatalogModel.Store.ModificareMaterie" />
+    <FunctionImportMapping FunctionImportName="ModificarePMC" FunctionName="CatalogModel.Store.ModificarePMC" />
+    <FunctionImportMapping FunctionImportName="ModificareProfesor" FunctionName="CatalogModel.Store.ModificareProfesor" />
+    <FunctionImportMapping FunctionImportName="MotivareAbsenta" FunctionName="CatalogModel.Store.MotivareAbsenta" />
+    <FunctionImportMapping FunctionImportName="NoteMedie" FunctionName="CatalogModel.Store.NoteMedie">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.NoteMedie_Result">
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="teza" ColumnName="teza" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="NoteProfesor" FunctionName="CatalogModel.Store.NoteProfesor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CatalogModel.NoteProfesor_Result">
+          <ScalarProperty Name="id_elev" ColumnName="id_elev" />
+          <ScalarProperty Name="id_materie" ColumnName="id_materie" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="teza" ColumnName="teza" />
+          <ScalarProperty Name="semestru" ColumnName="semestru" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="StergereClasa" FunctionName="CatalogModel.Store.StergereClasa" />
+    <FunctionImportMapping FunctionImportName="StergereElev" FunctionName="CatalogModel.Store.StergereElev" />
+    <FunctionImportMapping FunctionImportName="StergereLogin" FunctionName="CatalogModel.Store.StergereLogin" />
+    <FunctionImportMapping FunctionImportName="StergereMaterie" FunctionName="CatalogModel.Store.StergereMaterie" />
+    <FunctionImportMapping FunctionImportName="StergereNota" FunctionName="CatalogModel.Store.StergereNota" />
+    <FunctionImportMapping FunctionImportName="StergerePMC" FunctionName="CatalogModel.Store.StergerePMC" />
+    <FunctionImportMapping FunctionImportName="StergereProfesor" FunctionName="CatalogModel.Store.StergereProfesor" />
+  </EntityContainerMapping>
+</Mapping>

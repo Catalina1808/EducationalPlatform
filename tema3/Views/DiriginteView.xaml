@@ -1,0 +1,78 @@
+﻿<Window x:Class="tema3.Views.DiriginteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tema3.ViewModels"
+        mc:Ignorable="d"
+        Title="DiriginteView" Height="450" Width="800">
+    <Window.DataContext>
+        <local:DiriginteVM />
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/tema3;component/Images/fundal_profesor.jpg"></ImageBrush>
+        </Grid.Background>
+        <Button Content="Vizualizare/motivare absente pe clasa" HorizontalAlignment="Left" Margin="167,0,0,328" VerticalAlignment="Bottom" Width="410"
+            Command="{Binding OpenWindowCommand}" CommandParameter="1" Height="34" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FFF7F7F1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF992416" Offset="0"/>
+                    <GradientStop Color="#FFE29D60" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Vizualizare absente elev" HorizontalAlignment="Left" Margin="232,0,0,270" VerticalAlignment="Bottom" Width="289"
+            Command="{Binding OpenWindowCommand}" CommandParameter="2" Height="34" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FFF7F7F1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF992416" Offset="0"/>
+                    <GradientStop Color="#FFE29D60" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Vizualizare medii elev" HorizontalAlignment="Left" Margin="232,0,0,208" VerticalAlignment="Bottom" Width="289"
+            Command="{Binding OpenWindowCommand}" CommandParameter="3" Height="34" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FFF7F7F1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF992416" Offset="0"/>
+                    <GradientStop Color="#FFE29D60" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Vizualizare ierarhie clasa" HorizontalAlignment="Left" Margin="232,0,0,148" VerticalAlignment="Bottom" Width="289"
+            Command="{Binding OpenWindowCommand}" CommandParameter="4" Height="34" FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FFF7F7F1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF992416" Offset="0"/>
+                    <GradientStop Color="#FFE29D60" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Inapoi" HorizontalAlignment="Left" Margin="47,0,0,28" VerticalAlignment="Bottom" Width="111"
+            Command="{Binding OpenWindowCommand}" CommandParameter="5" Height="28" FontFamily="Segoe Script" FontSize="16" FontWeight="Bold" Foreground="#FF0F0400">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF992416" Offset="0"/>
+                    <GradientStop Color="#FFE29D60" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

@@ -1,0 +1,105 @@
+﻿<Window x:Class="tema3.Views.AbsenteElevView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:tema3.ViewModels"
+        xmlns:localConverter="clr-namespace:tema3.Converters"
+        mc:Ignorable="d"
+        Title="AbsenteElevView" Height="450" Width="877.636">
+    <Window.DataContext>
+        <local:AbsentaElevVM />
+    </Window.DataContext>
+    <Grid Margin="0,0,-6.6,-3">
+        <Grid.Background>
+            <ImageBrush ImageSource="/tema3;component/Images/fundal_profesor.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.Resources>
+            <localConverter:AbsentaElevConvert x:Key="absentaConvert" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="42,87,0,0" TextWrapping="Wrap" Text="Nume elev" VerticalAlignment="Top" Height="31" Width="83" FontSize="14" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtElevN" Width="142" HorizontalAlignment="Left"
+            Text ="{Binding SelectedItem.ElevN, ElementName=absenteGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="125,82,0,310.2" FontSize="16" FontFamily="Segoe Script" />
+        <TextBlock HorizontalAlignment="Left" Margin="14,119,0,0" TextWrapping="Wrap" Text="Prenume elev" VerticalAlignment="Top" Height="31" Width="111" FontSize="14" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFFAFAFA"/>
+        <TextBox x:Name="txtElevP" Width="142" HorizontalAlignment="Left"
+            Text ="{Binding SelectedItem.ElevP, ElementName=absenteGrid, UpdateSourceTrigger=PropertyChanged}"  Margin="125,119,0,273.2" FontSize="16" FontFamily="Segoe Script" />
+
+        <DataGrid x:Name="absenteGrid"  Margin="288,19,9.8,173.2" AutoGenerateColumns="False"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding AbsenteListElev, UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe Script" Background="#FFFCC093" BorderBrush="#FF0877E4" Foreground="#FF390BB3" RenderTransformOrigin="0.5,0.5" FontSize="11">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Nume elev" Binding="{Binding ElevN}" />
+                <DataGridTextColumn Header="Prenume elev" Binding="{Binding ElevP}" />
+                <DataGridTextColumn Header="Materie" Binding="{Binding Materie}" />
+                <DataGridTextColumn Header="Motivata" Binding="{Binding Motivata}" />
+                <DataGridTextColumn Header="Motivabila" Binding="{Binding Motivabila}" />
+                <DataGridTextColumn Header="Semestru" Binding="{Binding Semestru}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+        <Button Content="Vezi absente"  FontFamily="Segoe Script" FontSize="18" FontWeight="Bold" Foreground="#FFF5F7F7" Margin="325,309,288,72.2" Command="{Binding UpdateCommand}"
+             RenderTransformOrigin="0.664,0.587" >
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource absentaConvert}">
+                    <Binding ElementName="txtElevN" Path="Text"/>
+                    <Binding ElementName="txtElevP" Path="Text"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD3632D" Offset="0.511"/>
+                    <GradientStop Color="#FF802E0C" Offset="1"/>
+                    <GradientStop Color="#FFF0AE9F"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Inapoi" HorizontalAlignment="Left" Margin="15,0,0,26" VerticalAlignment="Bottom" Width="110"
+            Command="{Binding OpenWindowCommand}" Height="30" FontFamily="Segoe Script" FontSize="16" FontWeight="Bold" Foreground="#FF020006" Click="Button_Back">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD3632D" Offset="0.511"/>
+                    <GradientStop Color="#FF802E0C" Offset="1"/>
+                    <GradientStop Color="#FFF0AE9F"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="151,286,0,0" TextWrapping="Wrap" Text="Nr. total absente" VerticalAlignment="Top" Height="31" Width="169" FontSize="18" FontFamily="Segoe Script" Foreground="#FFF7EEEE" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBox x:Name="txtNrT" Width="72" HorizontalAlignment="Left"
+            Text ="{Binding NrT,  UpdateSourceTrigger=PropertyChanged}"  Margin="195,317,0,75.2" FontSize="16" FontFamily="Segoe Script" Background="#FFF4BCA5" RenderTransformOrigin="1.118,0.314" />
+        <TextBlock HorizontalAlignment="Left" Margin="605,286,0,0" TextWrapping="Wrap" Text="Nr. absente nemotivate" VerticalAlignment="Top" Height="26" Width="225" FontSize="18" FontFamily="Segoe Script" Foreground="#FFF7EEEE" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBox x:Name="txtNrN" Width="72" HorizontalAlignment="Left"
+            Text ="{Binding NrN, UpdateSourceTrigger=PropertyChanged}"  Margin="674,317,0,75.2" FontSize="16" FontFamily="Segoe Script" Background="#FFF4BCA5" />
+        <TextBlock HorizontalAlignment="Center" Margin="42,155,559,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="199" FontSize="18" FontFamily="Segoe Script" FontWeight="Bold" Foreground="#FFEA0D0D" TextAlignment="Center" Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</Window>
